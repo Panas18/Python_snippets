@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  count-app:
+    build: ./count
+
+    volumes:
+      - ./count:/flask-app/
+    ports:
+      - 8080:8080
+    
+    depends_on:
+      - redis
+  
+  redis:
+    image: redis
